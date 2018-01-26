@@ -1,0 +1,168 @@
+<?php
+require "MyDb.php";
+$db = new MyDb();
+$id = $_GET['id'];
+$username = $_COOKIE['username'];
+?>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SAMA Driving School</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/trainer.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SAMA</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-4">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <!-- <li><a href="user.php">Trainees</a></li> -->
+            <li>
+            	<form action="search.php" method="post" class="navbar-form navbar-left" >
+					<div class="form-group user-search">
+						<input name="search" type="text" class="form-control searchInput" placeholder="Search" >
+						<i class="fa fa-search searchInputIcon"></i>
+					</div>
+					
+				</form>
+            </li>
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse4" aria-expanded="false" aria-controls="nav-collapse4">Profile </a>
+            </li>
+          </ul>
+          <ul class="collapse nav navbar-nav nav-collapse slide-down" role="search" id="nav-collapse4">
+            <li><a href="#">Support</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><img class="img-circle" src="https://cdn2.iconfinder.com/data/icons/metro-ui-icon-set/512/Personal.png" alt="maridlcrmn" width="20" />
+               <?php echo $username ?> 
+               <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="user.php">My profile</a></li>
+                <!-- <li><a href="setting.html">Settings</a></li> -->
+                <li class="divider"></li>
+                <li><a href="logout.php">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+
+    <div class="home-doctors  clearfix" id="tseaction">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 ">
+                    <div class="slogan-section animated fadeInUp clearfix ae-animation-fadeInUp">
+                        <h2>Meet our <span>Trainers</span></h2>
+                        <h4>Hello ,, We are a School Sama family , We are happy to join with us.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- entry1 -->
+                <div class="col-lg-3 col-md-3 col-sm-6  text-center doc-item">
+                    <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp">
+                        <ul class="list-inline social-lists animate">
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        </ul>
+                        <figure>
+                            <img width="670" height="500" style="margin-top: 0px;" src="assets/img/p.jpg" alt="doctor-2"> 
+                        </figure>
+                        <div class="text-content">
+                            <h5><a href="#" style="text-decoration: none; color: black;">Mr. Kamal</a></h5> 
+                            <!-- <div class="for-border"></div> -->
+                            <h5><small>Trainers Info </small></h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- entry2 -->
+                <div class="col-lg-3 col-md-3 col-sm-6  text-center doc-item">
+                    <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp">
+                        <ul class="list-inline social-lists animate">
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        </ul>
+                        <figure>
+                            <img width="670" height="500" style="margin-top: 10px;" src="assets/img/v.png" class="doc-img animate attachment-gallery-post-single wp-post-image" alt="doctor-2"> 
+                        </figure>
+                        <div class="text-content">
+                            <h5>Ms. Amal</h5>
+                            <!-- <div class="for-border"></div> -->
+                            <h5><small>Trainers Info </small></h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- entry3 -->
+                <div class="col-lg-3 col-md-3 col-sm-6  text-center doc-item">
+                    <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp">
+                        <ul class="list-inline social-lists animate">
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        </ul>
+                        <figure>
+                            <img width="670" height="500" style="margin-top: 30px;" src="assets/img/Tim.jpg" class="doc-img animate attachment-gallery-post-single wp-post-image" alt="doctor-2"> 
+                        </figure>
+                        <div class="text-content">
+                            <h5>Mr. Rami</h5>
+                            <!-- <div class="for-border"></div> -->
+                            <h5><small>Trainers Info</small></h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- entry4 -->
+                <div class="col-lg-3 col-md-3 col-sm-6  text-center doc-item">
+                    <div class="common-doctor animated fadeInUp clearfix ae-animation-fadeInUp">
+                        <ul class="list-inline social-lists animate">
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        </ul>
+                        <figure>
+                            <img width="670" height="500" src="assets/img/person.png" style="margin-top: 10px;" class="doc-img animate attachment-gallery-post-single wp-post-image" alt="doctor-2"> 
+                        </figure>
+                        <div class="text-content">
+                            <h5>Mr. Jeremy</h5>
+                            <!-- <div class="for-border"></div> -->
+                            <h5><small>Trainers Info </small></h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- // -->
+                <div class="visible-sm clearfix margin-gap"></div>
+            </div>
+        </div>
+    </div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
